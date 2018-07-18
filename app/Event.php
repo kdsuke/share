@@ -23,11 +23,15 @@ class Event extends Model
     
      public function reviews()
     {
-        return $this ->BelongsToMany(Review::class);
+        return $this ->hasMany(Review::class);
     } 
     
     public function users_through_reviews()
     {
         return $this ->hasManyThrough(User::class, Review::class, 'event_id', 'id');
     }    
+    public function review_check ($my_event) {
+        $exist_or_not = Review::where('event_id', $my_event->id)->exists();
+        return $exist_or_not;
+    }
 }
