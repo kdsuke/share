@@ -26,7 +26,7 @@ Route::post('login', 'Auth\LoginController@login')->name('login.post');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 
 Route::get('index', function () {return view('events.index');})->name('index.get');
-Route::get('aboutus',  function () {return view('aboutus');})->name('aboutus.get');
+Route::get('about/us',  function () {return view('aboutus');})->name('aboutus.get');
 
 // カテゴリー
 Route::get('sport_index', 'EventController@sports')->name('sport.get');

@@ -5,7 +5,7 @@
 
 <!--<a href='#'>Back to current category</a>-->
 
-<a href = "{{route ('index.get') }}" class="btn btn-default">Back to Categories</a>
+<a href = "{{route ('sport.get') }}" class="btn btn-default">Back to Categories</a>
 
 
 @endsection
