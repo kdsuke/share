@@ -3,6 +3,12 @@
 <html>
   <head>
     <meta charset="utf-8" />
+
+    <link rel="stylesheet" href="{{ secure_asset('css/dots.css') }}">
+  </head>
+  <body>
+      
+=======
     <link rel="stylesheet" href="{{ secure_asset('css/welcome.css') }}">
         <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -14,6 +20,7 @@
   <body>
         @include('commons.navbar')
      
+
     <div id="box1" class="box">
       <span>&nbsp;&nbsp;&nbsp;&nbsp;全ての繋がりが</span><br>
       <span>&nbsp;&nbsp;&nbsp;&nbsp;新しい経験になる</span><br>
