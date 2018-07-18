@@ -14,7 +14,7 @@
     </div>
     <div class="form-group">
     {!! Form::label('category', 'Category:') !!}    
-    {!! Form::select('category', ['Sports'=>'Sports', 'Arts'=>'Arts', 'Beauty'=>'Beauty','Nature'=>'Nature','Food'=>'Food','Technology'=>'Technology','Language'=>'Language','Others'=>'Others']) !!} 
+    {!! Form::select('category', ['Sports'=>'Sports', 'History'=>'History', 'Arts'=>'Arts', 'Beauty'=>'Beauty','Nature'=>'Nature','Food'=>'Food','Technology'=>'Technology','Language'=>'Language','Others'=>'Others']) !!} 
     <!--{!! Form::text('category') !!}-->
     </div>
     <div class="form-group">

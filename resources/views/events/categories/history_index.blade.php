@@ -56,7 +56,7 @@
     <div class="container">
 
       <!-- Page Heading -->
-      <h1 class="my-4">Technology Index.
+      <h1 class="my-4">History Index.
       </h1>
   
       <div class="row">

@@ -30,6 +30,7 @@ Route::get('about/us',  function () {return view('aboutus');})->name('aboutus.ge
 
 // カテゴリー
 Route::get('sport_index', 'EventController@sports')->name('sport.get');
+Route::get('history_index', 'EventController@history')->name('history.get');
 Route::get('art_index', 'EventController@arts')->name('art.get');
 Route::get('beauty_index', 'EventController@beauty')->name('beauty.get');
 Route::get('technology_index', 'EventController@technology')->name('technology.get');

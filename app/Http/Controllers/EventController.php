@@ -18,6 +18,13 @@ class EventController extends Controller
         return view ('events.categories.sport_index', ['items' => $items]);
         
     } 
+    
+        public function history(){
+        $items = Event::where('category', 'history')->get();
+        return view ('events.categories.history_index', ['items' => $items]);
+        
+    } 
+    
     public function beauty(){
         $items = Event::where('category', 'beauty')->get();
         return view ('events.categories.beauty_index', ['items' => $items]);
