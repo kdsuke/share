@@ -43,72 +43,7 @@ class User extends Authenticatable
         
         return $this->events()->where('status','done');
     }
-    
-    //     public function ongoing($eventId)
-    // {
-        
-    //     $exist = $this->is_ongoinging($eventId);
-
-    //     if ($exist) {
-    //         // do nothing
-    //         return false;
-    //     } else {
-            
-    //         $this->events()->attach($eventId, ['status' => 'ongoing']);
-    //         return true;
-    //     }
-    // }
-
-    // public function dont_ongoing($eventId)
-    // {
-    //     $exist = $this->is_ongoinging($eventId);
-
-    //     if ($exist) {
-            
-    //         \DB::delete("DELETE FROM events WHERE status = 'ongoing'", [$this->id, $eventId]);
-    //     } else {
-            
-    //         return false;
-    //     }
-    // }
-
-    // public function is_wanting($itemIdOrCode)
-    // {
-    //     if (is_numeric($itemIdOrCode)) {
-    //         $item_id_exists = $this->want_items()->where('item_id', $itemIdOrCode)->exists();
-    //         return $item_id_exists;
-    //     } else {
-    //         $item_code_exists = $this->want_items()->where('code', $itemIdOrCode)->exists();
-    //         return $item_code_exists;
-    //     }
-    // }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+  
      public function user_events(){
          
         return $this ->BelongsToMany(UserEvent::class);
@@ -124,23 +59,22 @@ class User extends Authenticatable
 
      public function reviews_through_events()
     {
-        return $this ->hasManyThrough(Review::class, Event::class);
+        return $this ->hasManyThrough(Review::class, Event::class, 'user_id', 'event_id');
     }  
 
      public function events_through_user_events()
     {
         return $this ->hasManyThrough(Event::class, UserEvent::class, 'user_id', 'id');
     }     
-    
-// リクエストのチェっク   
-    // public function have_items()
-    //     {
-    //         return $this->items()->where('type', 'have');
-    //     }
         
     public function request_check($event){
         $requesting_events = UserEvent::where('user_id', $this->id);
         $exist_or_not = $requesting_events->where('event_id', $event->id)->exists();
         return $exist_or_not;
     } 
+    public static function int_p_check(){
+        $user = \Auth::user();
+        $exist_or_not = Transaction::where('user_id',$user->id)->where('event_id', 0)->exists();
+        return $exist_or_not;
+    }
 }
