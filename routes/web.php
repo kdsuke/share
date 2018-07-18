@@ -11,10 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+Route::get('/', 'EventController@index');
 Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');
@@ -25,8 +22,15 @@ Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login')->name('login.post');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 
+<<<<<<< HEAD
 Route::get('index', function () {return view('events.index');})->name('index.get');
 Route::get('about/us',  function () {return view('aboutus');})->name('aboutus.get');
+=======
+Route::get('int_p', 'EventController@int_p')->name('int_p.get');
+Route::get('index', 'EventController@index')->name('index.get');
+Route::get('firstindex', 'EventController@firstindex')->name('firstindex.get');
+Route::get('aboutus',  function () {return view('aboutus');})->name('aboutus.get');
+>>>>>>> ff992519fd29301ad704537ba170dd0b2695691d
 
 // カテゴリー
 Route::get('sport_index', 'EventController@sports')->name('sport.get');
@@ -50,14 +54,14 @@ Route::get('post',  'EventController@create')->name('post.get');
 Route::post('items',  'EventController@store')->name('post.post');
 
 // レビュー
-Route::get('review/{id}',  'ReviewController@create')->name('review.get');
+Route::get('review/{event_id}/{attendiee_id}', 'ReviewController@create')->name('review.get');
 
 // レビューDONE
-Route::post('reviewdone/{id}', 'ReviewController@reviewdone')->name('reviewdone.post');
+Route::post('reviewdone/{event_id}/{attendiee_id}', 'ReviewController@reviewdone')->name('reviewdone.post');
 // Route::get('reviewdone', 'ReviewController@reviewdone')->name('reviewdone.get');
 
 // ArrangeDONE
-Route::get('arrangedone/{id}','EventController@arrangedone')->name('arrangedone.get');
+Route::get('arrangedone/{event_id}/{attendiee_id}','EventController@arrangedone')->name('arrangedone.get');
 
 
 // レビューDONEからMy page
@@ -67,7 +71,6 @@ Route::get('user', 'UserController@mypage')->name('user.get');
 // プロフィール編集
 Route::get('profileedit/{id}',  'UserController@create')->name('profileedit.get');
 Route::post('editdone/{id}', 'UserController@editdone')->name('editdone.post');
-// Route::post('profileedit/{id}',  'UserController@store')->name('profileedit.post');
 
 Route::get('reviewhistory/{id}',  'ReviewController@review_history')->name('reviewhistory.get');
 
